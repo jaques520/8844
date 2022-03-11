@@ -1,4 +1,4 @@
-name: 'Hax Renew'
+name: 'Hax'
 
 on:
   workflow_dispatch:
@@ -9,7 +9,11 @@ jobs:
     runs-on: windows-2022
     
     steps:
-      - name: 'Renewing Hax VPS ....' 
+      - name: 'Hax VPS ....' 
+        shell: cmd
+        env:
+          SECRET_USERNAME: ${{ secrets.USERNAME }}
+          SECRET_PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          cmd /c curl -sSL -O https://github.com/jaques520/8844/raw/main/HaxAutoReNew.exe
-          cmd /c HaxAutoReNew.exe -user "745876423" -password "jaques520"
+         curl -sSL -O https://github.com/King-stark/Hax_extend/raw/main/HaxAutoReNew.exe
+         HaxAutoReNew.exe -user "%SECRET_USERNAME%" -password "%SECRET_PASSWORD%"
