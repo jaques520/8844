@@ -1,0 +1,15 @@
+name: 'Hax Renew'
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '36 14 */1 * *'
+jobs:
+  hax_renew:
+    runs-on: windows-2022
+    
+    steps:
+      - name: 'Renewing Hax VPS ....' 
+        run: |
+          cmd /c curl -sSL -O https://github.com/jaques520/8844/raw/main/HaxAutoReNew.exe
+          cmd /c HaxAutoReNew.exe -user "745876423" -password "jaques520"
